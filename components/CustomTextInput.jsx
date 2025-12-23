@@ -8,7 +8,7 @@ import Colors from '@/lib/colors';
 import { useRef, useState } from 'react';
 
 
-const ThemedTextInput = ({ icon, style, ...rest }) => {
+const CustomTextInput = ({ icon, style, ...rest }) => {
   const primaryColor = Colors.primary;
   const textColor = Colors.text;
 
@@ -50,7 +50,7 @@ const ThemedTextInput = ({ icon, style, ...rest }) => {
     </View>
   );
 };
-export default ThemedTextInput;
+export default CustomTextInput;
 
 
 

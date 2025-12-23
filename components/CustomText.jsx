@@ -3,7 +3,7 @@ import Colors from '@/lib/colors';
 
 
 
-export function ThemedText({
+export function CustomText({
   style,
   type = 'default', // 'default' | 'title' | 'defaultSemiBold' | 'subtitle' | 'link';
   ...rest

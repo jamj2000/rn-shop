@@ -2,14 +2,8 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Colors from '@/lib/colors'
 
 
-// interface Props {
-//   options: string[];
-//   selectedOptions: string[];
 
-//   onSelect: (option: string) => void;
-// }
-
-const ThemedButtonGroup = ({ options, selectedOptions, onSelect }) => {
+const CustomButtonGroup = ({ options, selectedOptions, onSelect }) => {
   const primaryColor = Colors.primary;
 
   return (
@@ -40,7 +34,7 @@ const ThemedButtonGroup = ({ options, selectedOptions, onSelect }) => {
     </View>
   );
 };
-export default ThemedButtonGroup;
+export default CustomButtonGroup;
 
 const styles = StyleSheet.create({
   container: {

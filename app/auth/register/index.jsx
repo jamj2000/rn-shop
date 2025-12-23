@@ -1,6 +1,6 @@
-import ThemedButton from '@/components/ThemedButton';
-import { ThemedText } from '@/components/ThemedText';
-import ThemedTextInput from '@/components/ThemedTextInput';
+import CustomButton from '@/components/CustomButton';
+import { CustomText } from '@/components/CustomText';
+import CustomTextInput from '@/components/CustomTextInput';
 import { Link } from 'expo-router';
 import {
   KeyboardAvoidingView,
@@ -27,28 +27,28 @@ const RegisterScreen = () => {
             paddingTop: height * 0.35,
           }}
         >
-          <ThemedText type="title">Crear cuenta</ThemedText>
-          <ThemedText style={{ color: 'grey' }}>
+          <CustomText type="title">Crear cuenta</CustomText>
+          <CustomText style={{ color: 'grey' }}>
             Por favor crea una cuenta para continuar
-          </ThemedText>
+          </CustomText>
         </View>
 
         {/* Email y Password */}
         <View style={{ marginTop: 20 }}>
-          <ThemedTextInput
+          <CustomTextInput
             placeholder="Nombre completo"
             autoCapitalize="words"
             icon="person-outline"
           />
 
-          <ThemedTextInput
+          <CustomTextInput
             placeholder="Correo electrónico"
             keyboardType="email-address"
             autoCapitalize="none"
             icon="mail-outline"
           />
 
-          <ThemedTextInput
+          <CustomTextInput
             placeholder="Contraseña"
             secureTextEntry
             autoCapitalize="none"
@@ -60,7 +60,7 @@ const RegisterScreen = () => {
         <View style={{ marginTop: 10 }} />
 
         {/* Botón */}
-        <ThemedButton icon="arrow-forward-outline">Crear cuenta</ThemedButton>
+        <CustomButton icon="arrow-forward-outline">Crear cuenta</CustomButton>
 
         {/* Spacer */}
         <View style={{ marginTop: 50 }} />
@@ -73,7 +73,7 @@ const RegisterScreen = () => {
             alignItems: 'center',
           }}
         >
-          <ThemedText>¿Ya tienes cuenta?</ThemedText>
+          <CustomText>¿Ya tienes cuenta?</CustomText>
 
           <Link href="/auth/login" style={{ color: '#3D64F4', marginHorizontal: 5 }}>
             Ingresar

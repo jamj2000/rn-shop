@@ -1,14 +1,14 @@
 import { router } from 'expo-router';
 import { TouchableOpacity, Image } from 'react-native';
 
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import { CustomText } from '@/components/CustomText';
+import { CustomView } from '@/components/CustomView';
 
 
 
 export const ProductCard = ({ product }) => {
   return (
-    <ThemedView
+    <CustomView
       style={{
         flex: 1,
         backgroundColor: '#F9F9F9',
@@ -31,14 +31,14 @@ export const ProductCard = ({ product }) => {
           />
         )}
 
-        <ThemedText
+        <CustomText
           numberOfLines={2}
           style={{ textAlign: 'center' }}
           darkColor={'black'}
         >
           {product.title}
-        </ThemedText>
+        </CustomText>
       </TouchableOpacity>
-    </ThemedView>
+    </CustomView>
   );
 };

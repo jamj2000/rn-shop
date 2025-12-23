@@ -12,12 +12,12 @@ import {
   useLocalSearchParams,
   useNavigation,
 } from 'expo-router';
-import { ThemedView } from '@/components/ThemedView';
-import ThemedTextInput from '@/components/ThemedTextInput';
+import { CustomView } from '@/components/CustomView';
+import CustomTextInput from '@/components/CustomTextInput';
 import { useProduct } from '@/lib/hooks/useProduct';
 import ProductImages from '@/components/products/ProductImages';
-import ThemeButtonGroup from '@/components/ThemedButtonGroup';
-import ThemedButton from '@/components/ThemedButton';
+import ThemeButtonGroup from '@/components/CustomButtonGroup';
+import CustomButton from '@/components/CustomButton';
 import { Formik } from 'formik';
 import CameraIconButton from '@/components/CameraIconButton';
 import { useCameraStore } from '@/lib/stores/useCameraStore';
@@ -86,22 +86,22 @@ const ProductScreen = () => {
           <ScrollView>
             <ProductImages images={[...product.images, ...selectedImages]} />
 
-            <ThemedView style={{ marginHorizontal: 10, marginTop: 20 }}>
-              <ThemedTextInput
+            <CustomView style={{ marginHorizontal: 10, marginTop: 20 }}>
+              <CustomTextInput
                 placeholder="Título"
                 style={{ marginVertical: 5 }}
                 value={values.title}
                 onChangeText={handleChange('title')}
               />
 
-              <ThemedTextInput
+              <CustomTextInput
                 placeholder="Slug"
                 style={{ marginVertical: 5 }}
                 value={values.slug}
                 onChangeText={handleChange('slug')}
               />
 
-              <ThemedTextInput
+              <CustomTextInput
                 placeholder="Descripción"
                 multiline
                 numberOfLines={5}
@@ -109,9 +109,9 @@ const ProductScreen = () => {
                 value={values.description}
                 onChangeText={handleChange('description')}
               />
-            </ThemedView>
+            </CustomView>
 
-            <ThemedView
+            <CustomView
               style={{
                 marginHorizontal: 10,
                 marginVertical: 5,
@@ -119,21 +119,21 @@ const ProductScreen = () => {
                 gap: 10,
               }}
             >
-              <ThemedTextInput
+              <CustomTextInput
                 placeholder="Precio"
                 style={{ flex: 1 }}
                 value={values.price.toString()}
                 onChangeText={handleChange('price')}
               />
-              <ThemedTextInput
+              <CustomTextInput
                 placeholder="Inventario"
                 style={{ flex: 1 }}
                 value={values.stock.toString()}
                 onChangeText={handleChange('stock')}
               />
-            </ThemedView>
+            </CustomView>
 
-            <ThemedView
+            <CustomView
               style={{
                 marginHorizontal: 10,
               }}
@@ -159,7 +159,7 @@ const ProductScreen = () => {
                   setFieldValue('gender', selectedOption)
                 }
               />
-            </ThemedView>
+            </CustomView>
 
             {/* Botón para guardar */}
 
@@ -170,9 +170,9 @@ const ProductScreen = () => {
                 marginTop: 20,
               }}
             >
-              <ThemedButton icon="save-outline" onPress={() => handleSubmit()}>
+              <CustomButton icon="save-outline" onPress={() => handleSubmit()}>
                 Guardar
-              </ThemedButton>
+              </CustomButton>
             </View>
           </ScrollView>
         </KeyboardAvoidingView>

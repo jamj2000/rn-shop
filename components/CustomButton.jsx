@@ -3,7 +3,7 @@ import { Text, Pressable, StyleSheet } from 'react-native';
 import Colors from '@/lib/colors';
 
 
-const ThemedButton = ({ children, icon, ...rest }) => {
+const CustomButton = ({ children, icon, ...rest }) => {
   const primaryColor = Colors.primary;
 
   return (
@@ -27,7 +27,7 @@ const ThemedButton = ({ children, icon, ...rest }) => {
     </Pressable>
   );
 };
-export default ThemedButton;
+export default CustomButton;
 
 
 
