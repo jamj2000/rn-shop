@@ -13,6 +13,7 @@ import Colors from '@/lib/colors';
 const RegisterScreen = () => {
   const { height } = useWindowDimensions();
   const backgroundColor = Colors.background;
+  const primaryColor = Colors.primary;
 
   return (
     <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
@@ -75,7 +76,7 @@ const RegisterScreen = () => {
         >
           <CustomText>¿Ya tienes cuenta?</CustomText>
 
-          <Link href="/auth/login" style={{ color: '#3D64F4', marginHorizontal: 5 }}>
+          <Link href="/auth/login" style={{ color: primaryColor, marginHorizontal: 5 }}>
             Ingresar
           </Link>
 
