@@ -6,7 +6,6 @@ import { Alert } from 'react-native';
 export class SecureStorageAdapter {
   static async setItem(key: string, value: string) {
     try {
-
       await SecureStore.setItemAsync(key, value);
 
     } catch (error) {
