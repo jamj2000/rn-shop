@@ -9,7 +9,10 @@
       "distribution": "internal"
     },
     "preview": {
-      "distribution": "internal"
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_API_HOST": "https://nxapi-shop.vercel.app"
+      }
     },
     "production": {
       "autoIncrement": true
