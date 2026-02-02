@@ -8,7 +8,6 @@ import { CustomView } from '@/components/CustomView';
 
 export const ProductCard = ({ product }) => {
 
-  console.log(product)
 
   return (
     <CustomView
