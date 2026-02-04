@@ -31,7 +31,11 @@ const ProductImages = ({ images }) => {
       showsHorizontalScrollIndicator={false}
       renderItem={({ item }) => (
         <Image
-          source={{ uri: API_HOST + IMAGES_PATH + item }}
+          source={{
+            uri: item.startsWith('file://')
+              ? item
+              : API_HOST + IMAGES_PATH + item
+          }}
           style={{
             width: 300,
             height: 300,
