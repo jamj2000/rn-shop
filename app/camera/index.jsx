@@ -16,7 +16,6 @@ import { CustomText } from '@/components/CustomText';
 import Colors from '@/lib/colors';
 
 import { CameraView, CameraType, useCameraPermissions } from 'expo-camera';
-import * as MediaLibrary from 'expo-media-library';
 import * as ImagePicker from 'expo-image-picker';
 
 import { useCameraStore } from '@/lib/stores/useCameraStore';
@@ -29,8 +28,6 @@ export default function CameraScreen() {
 
   const [facing, setFacing] = useState('back');  // CameraType
   const [cameraPermission, requestCameraPermission] = useCameraPermissions();
-  const [mediaPermission, requestMediaPermission] =
-    MediaLibrary.usePermissions();
 
   const [selectedImage, setSelectedImage] = useState();
 
@@ -44,15 +41,6 @@ export default function CameraScreen() {
         Alert.alert(
           'Lo siento',
           'Necesitamos permiso a la cámara para tomar fotos'
-        );
-        return;
-      }
-
-      const { status: mediaPermissionStatus } = await requestMediaPermission();
-      if (mediaPermissionStatus !== 'granted') {
-        Alert.alert(
-          'Lo siento',
-          'Necesitamos permiso a la galería para guardar las imágenes'
         );
         return;
       }
@@ -114,10 +102,11 @@ export default function CameraScreen() {
   const onPictureAccepted = async () => {
     if (!selectedImage) return;
 
-    await MediaLibrary.createAssetAsync(selectedImage);
+    // Guardar en galería es opcional - no funciona en Expo Go
+    // Para guardar en galería, usar un development build
 
     addSelectedImage(selectedImage);
-    console.log('acepted', selectedImages.map((image) => image.split('/').pop().split('.').shift()))
+    console.log('accepted', selectedImages.map((image) => image.split('/').pop().split('.').shift()))
 
     router.dismiss();
   };
