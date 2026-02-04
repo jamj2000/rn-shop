@@ -5,6 +5,9 @@ import { CustomText } from '@/components/CustomText';
 import { CustomView } from '@/components/CustomView';
 
 
+const API_HOST = process.env.EXPO_PUBLIC_API_HOST;
+const IMAGES_PATH = process.env.EXPO_PUBLIC_IMAGES_PATH;
+
 
 export const ProductCard = ({ product }) => {
 
@@ -35,7 +38,7 @@ export const ProductCard = ({ product }) => {
           />
         ) : (
           <Image
-            source={{ uri: product.images[0] }}
+            source={{ uri: API_HOST + IMAGES_PATH + product.images[0] }}
             style={{ flex: 1, height: 200, width: '100%' }}
             resizeMode="contain"
           />

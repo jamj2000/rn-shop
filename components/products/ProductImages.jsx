@@ -1,6 +1,11 @@
 import { View, Text, Image, FlatList } from 'react-native';
 
 
+const API_HOST = process.env.EXPO_PUBLIC_API_HOST;
+const IMAGES_PATH = process.env.EXPO_PUBLIC_IMAGES_PATH;
+
+
+
 const ProductImages = ({ images }) => {
   if (images.length === 0) {
     return (
@@ -26,7 +31,7 @@ const ProductImages = ({ images }) => {
       showsHorizontalScrollIndicator={false}
       renderItem={({ item }) => (
         <Image
-          source={{ uri: item }}
+          source={{ uri: API_HOST + IMAGES_PATH + item }}
           style={{
             width: 300,
             height: 300,

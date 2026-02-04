@@ -78,13 +78,24 @@ const ProductScreen = () => {
 
 
   return (
-    <Formik initialValues={product} onSubmit={productMutation.mutate}>
+    <Formik
+      initialValues={{
+        ...product,
+        images: [...product.images],
+      }}
+      onSubmit={(values) =>
+        productMutation.mutate({
+          ...values,
+          images: [...values.images, ...selectedImages],
+        })
+      }
+    >
       {({ values, handleSubmit, handleChange, setFieldValue }) => (
         <KeyboardAvoidingView
           behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         >
           <ScrollView>
-            <ProductImages images={[...product.images, ...selectedImages]} />
+            <ProductImages images={[...values.images, ...selectedImages]} />
 
             <CustomView style={{ marginHorizontal: 10, marginTop: 20 }}>
               <CustomTextInput
