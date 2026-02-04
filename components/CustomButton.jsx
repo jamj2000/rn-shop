@@ -1,28 +1,35 @@
 import { Ionicons } from '@expo/vector-icons';
-import { Text, Pressable, StyleSheet } from 'react-native';
+import { Text, Pressable, StyleSheet, ActivityIndicator } from 'react-native';
 import Colors from '@/lib/colors';
 
 
-const CustomButton = ({ children, icon, ...rest }) => {
+const CustomButton = ({ children, icon, isLoading, ...rest }) => {
   const primaryColor = Colors.primary;
 
   return (
     <Pressable
       style={({ pressed }) => [
-        { backgroundColor: pressed ? primaryColor + '90' : primaryColor },
+        { backgroundColor: (pressed || isLoading) ? primaryColor + '90' : primaryColor },
         styles.button,
       ]}
+      disabled={isLoading}
       {...rest}
     >
-      <Text style={{ color: 'white' }}>{children}</Text>
+      {isLoading ? (
+        <ActivityIndicator color="white" />
+      ) : (
+        <>
+          <Text style={{ color: 'white' }}>{children}</Text>
 
-      {icon && (
-        <Ionicons
-          name={icon}
-          size={24}
-          color="white"
-          style={{ marginHorizontal: 5 }}
-        />
+          {icon && (
+            <Ionicons
+              name={icon}
+              size={24}
+              color="white"
+              style={{ marginHorizontal: 5 }}
+            />
+          )}
+        </>
       )}
     </Pressable>
   );

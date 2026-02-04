@@ -181,7 +181,11 @@ const ProductScreen = () => {
                 marginTop: 20,
               }}
             >
-              <CustomButton icon="save-outline" onPress={() => handleSubmit()}>
+              <CustomButton
+                icon="save-outline"
+                onPress={() => handleSubmit()}
+                isLoading={productMutation.isPending}
+              >
                 Guardar
               </CustomButton>
             </View>
