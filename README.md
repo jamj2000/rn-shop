@@ -20,18 +20,28 @@ bunx expo install --fix
 # 3. Verificar problemas comunes
 bunx expo-doctor
 
-# 4. Revisar el changelog/release notes de cada versión
+# 4. Probar la aplicación y resolver incidencias
 bunx expo start
 ```
 
 > [!NOTE]
 >
+> Por motivos de compatibilidad con [EAS Build](https://docs.expo.dev/build/introduction/) se sustituyó `bun` por `npm` y se resolvieron algunas incidencias con las versiones de algunos paquetes. Se eliminó la carpeta `node_modules` y se volvieron a instalar las dependencias con `npm install`.
+
+
+> [!NOTE]
+>
 > En el archivo `app.json` se debe cambiar la propiedad `newArchEnabled` a `true` para habilitar la nueva arquitectura de React Native.
 > 
-> En expo 54 se debe instalar `react-native-worklets`: `bunx expo install react-native-worklets`
+> Además, en expo 54 se debe instalar el paquete `react-native-worklets`: `npx expo install react-native-worklets`
 
 
-Posteriormente se usó npm en lugar de bun y se resolvieron algunas incidencias con las versiones de algunos paquetes. Se eliminó la carpeta `node_modules` y se volvió a instalar las dependencias con `npm install`.
+
+## Backend usado
+
+El backend usado es [nxapi-shop](https://github.com/jamj2000/nxapi-shop) desplegado en [Vercel](https://nxapi-shop.vercel.app)
+
+
 
 ## Prueba y Desarrollo local
 
@@ -39,7 +49,3 @@ Posteriormente se usó npm en lugar de bun y se resolvieron algunas incidencias 
 2. Clonar `.env.template` a `.env` y cambiar la dirección IP o dominio del backend
 3. Ejecutar `npx expo start`
 
-
-## Backend usado
-
-El backend usado es [nxapi-shop](https://github.com/jamj2000/nxapi-shop) desplegado en [Vercel](https://nxapi-shop.vercel.app)

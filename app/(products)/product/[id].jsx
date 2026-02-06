@@ -189,6 +189,22 @@ const ProductScreen = () => {
                 Guardar
               </CustomButton>
             </View>
+
+            <View
+              style={{
+                marginHorizontal: 10,
+                marginBottom: 50,
+                marginTop: 20,
+              }}
+            >
+              <CustomButton
+                icon="trash-outline"
+                onPress={() => handleSubmit()}
+                isLoading={productMutation.isPending}
+              >
+                Eliminar
+              </CustomButton>
+            </View>
           </ScrollView>
         </KeyboardAvoidingView>
       )}
