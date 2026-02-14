@@ -3,16 +3,21 @@ import { Text, Pressable, StyleSheet, ActivityIndicator } from 'react-native';
 import Colors from '@/lib/colors';
 
 
-const CustomButton = ({ children, icon, isLoading, ...rest }) => {
+const CustomButton = ({ children, icon, isLoading, style, ...rest }) => {
   const primaryColor = Colors.primary;
 
   return (
     <Pressable
-      style={({ pressed }) => [
-        { backgroundColor: (pressed || isLoading) ? primaryColor + '90' : primaryColor },
-        styles.button,
-      ]}
       disabled={isLoading}
+      style={({ pressed }) => [
+        styles.button,
+        {
+          backgroundColor: primaryColor,
+          opacity: pressed || isLoading ? 0.85 : 1,
+          transform: [{ scale: pressed ? 0.98 : 1 }],
+        },
+        style,
+      ]}
       {...rest}
     >
       {isLoading ? (

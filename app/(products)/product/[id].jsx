@@ -17,7 +17,7 @@ import { CustomView } from '@/components/CustomView';
 import CustomTextInput from '@/components/CustomTextInput';
 import { useProduct } from '@/lib/hooks/useProduct';
 import ProductImages from '@/components/products/ProductImages';
-import ThemeButtonGroup from '@/components/CustomButtonGroup';
+import CustomButtonGroup from '@/components/CustomButtonGroup';
 import CustomButton from '@/components/CustomButton';
 import { Formik } from 'formik';
 import CameraIconButton from '@/components/CameraIconButton';
@@ -171,7 +171,7 @@ const ProductScreen = () => {
                 marginHorizontal: 10,
               }}
             >
-              <ThemeButtonGroup
+              <CustomButtonGroup
                 options={['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL']}
                 selectedOptions={values.sizes}
                 onSelect={(selectedSize) => {
@@ -185,7 +185,7 @@ const ProductScreen = () => {
                 }}
               />
 
-              <ThemeButtonGroup
+              <CustomButtonGroup
                 options={['kid', 'men', 'women', 'unisex']}
                 selectedOptions={[values.gender]}
                 onSelect={(selectedOption) =>
