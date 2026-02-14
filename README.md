@@ -37,15 +37,27 @@ bunx expo start
 
 
 
-## Backend usado
-
-El backend usado es [nxapi-shop](https://github.com/jamj2000/nxapi-shop) desplegado en [Vercel](https://nxapi-shop.vercel.app)
-
-
-
 ## Prueba y Desarrollo local
 
 1. Instalar las dependencias `npm install`
 2. Clonar `.env.template` a `.env` y cambiar la dirección IP o dominio del backend
 3. Ejecutar `npx expo start`
 
+
+
+## Autenticación 
+
+Para autenticarte en la aplicación puedes usar una de las siguientes credenciales:
+
+Email               | Contraseña
+---------------------|------------------
+`test@google.com`    | 123
+`test1@google.com`   | Abc123
+`test2@google.com`   | Abc123
+
+
+
+
+## Backend usado
+
+El backend usado es [nxapi-shop](https://github.com/jamj2000/nxapi-shop) desplegado en [Vercel](https://nxapi-shop.vercel.app)
