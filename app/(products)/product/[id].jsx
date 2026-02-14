@@ -5,6 +5,7 @@ import {
   ScrollView,
   Platform,
   ActivityIndicator,
+  Alert,
 } from 'react-native';
 import {
   Redirect,
@@ -31,13 +32,13 @@ const ProductScreen = () => {
   const { id } = useLocalSearchParams();
   const navigation = useNavigation();
 
-  const { productQuery, productMutation } = useProduct(`${id}`);
+  const { productQuery, productMutation, deleteMutation } = useProduct(`${id}`);
+
 
   useEffect(() => {
-    return () => {
-      clearImages();
-    };
+    clearImages();
   }, []);
+
 
   useEffect(() => {
     navigation.setOptions({
@@ -60,6 +61,28 @@ const ProductScreen = () => {
   }, [productQuery.data]);
 
 
+  const onDeleteProduct = () => {
+    Alert.alert(
+      'Eliminar producto',
+      '¿Seguro que quieres borrarlo?',
+      [
+        { text: 'Cancelar', style: 'cancel' },
+        {
+          text: 'Eliminar',
+          style: 'destructive',
+          onPress: () => {
+            deleteMutation.mutate(id, {
+              onSuccess: () => router.replace('/'),
+            });
+          },
+        },
+      ]
+    );
+  };
+
+
+
+
   if (productQuery.isLoading) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -73,7 +96,6 @@ const ProductScreen = () => {
     return <Redirect href="/" />;
   }
 
-  // const product = productQuery.data!;
   const product = productQuery.data;
 
 
@@ -172,15 +194,9 @@ const ProductScreen = () => {
               />
             </CustomView>
 
-            {/* Botón para guardar */}
 
-            <View
-              style={{
-                marginHorizontal: 10,
-                marginBottom: 50,
-                marginTop: 20,
-              }}
-            >
+            {/* GUARDAR */}
+            <View style={{ marginHorizontal: 10, marginTop: 20 }}>
               <CustomButton
                 icon="save-outline"
                 onPress={() => handleSubmit()}
@@ -190,21 +206,18 @@ const ProductScreen = () => {
               </CustomButton>
             </View>
 
-            <View
-              style={{
-                marginHorizontal: 10,
-                marginBottom: 50,
-                marginTop: 20,
-              }}
-            >
+            {/* BOTÓN BORRAR */}
+            <View style={{ marginHorizontal: 10, marginBottom: 80, marginTop: 15 }}>
               <CustomButton
                 icon="trash-outline"
-                onPress={() => handleSubmit()}
-                isLoading={productMutation.isPending}
+                onPress={onDeleteProduct}
+                isLoading={deleteMutation.isPending}
+                style={{ backgroundColor: '#ff3b30' }}
               >
-                Eliminar
+                Borrar producto
               </CustomButton>
             </View>
+
           </ScrollView>
         </KeyboardAvoidingView>
       )}

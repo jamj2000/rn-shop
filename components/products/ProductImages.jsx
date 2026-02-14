@@ -45,7 +45,7 @@ const ProductImages = ({ images, setImages }) => {
               borderRadius: 5,
             }}
           />
-          <FAB
+          {/* <FAB
             iconName="trash-outline"
             onPress={() => {
               Alert.alert('Eliminar imagen', '¿Estás seguro de eliminar esta imagen?', [
@@ -63,7 +63,7 @@ const ProductImages = ({ images, setImages }) => {
               ]);
             }}
             style={{ width: 40, height: 40, position: 'absolute', top: 10, right: 10, backgroundColor: 'lightcoral', borderRadius: 100 }}
-          />
+          /> */}
         </View>
       )}
     />
